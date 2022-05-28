@@ -3,23 +3,24 @@ import Navigation from "./Navigation.jsx";
 import Item from "./TodoItem.jsx";
 
 export default function List(props) {
-    var itemsLeft = props.itemList.length;
     return (
         <div className="list">
             <ul>
                 {props.itemList.map((item, index) => {
                     return (
                         <Item
-                            key={item + Date.now()}
-                            id={item + Date.now()}
+                            key={item.id}
+                            id={item.id}
+                            text={item.text}
+                            completed={item.completed}
                             index={index}
-                            text={item}
                             onDelete={props.onDelete}
+                            onComplete={props.onComplete}
                         />
                     );
                 })}
             </ul>
-            <Navigation itemsLeft={itemsLeft} onClear={props.onClear} />
+            <Navigation itemsLeft={props.itemsLeft} onClear={props.onClear} />
         </div>
     );
 }

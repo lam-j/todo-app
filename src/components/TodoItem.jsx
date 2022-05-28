@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function TodoItem(props) {
-    const [isComplete, setIsComplete] = useState(false);
-
-    function handleClick() {
-        setIsComplete(!isComplete);
-        document.getElementById(props.id).checked = !isComplete;
-    }
-
     return (
         <li>
-            <input id={props.id} type="checkbox" onClick={handleClick} />
+            <input
+                id={props.id + "input"}
+                type="checkbox"
+                onClick={() => {
+                    props.onComplete(props.id);
+                }}
+            />
             <p
-                onClick={handleClick}
+                onClick={() => {
+                    props.onComplete(props.id);
+                }}
                 style={{
-                    color: isComplete && "hsl(233, 11%, 84%)",
-                    textDecorationLine: isComplete && "line-through",
+                    color: props.completed === true && "hsl(233, 11%, 84%)",
+                    textDecorationLine: props.completed === true && "line-through",
                 }}>
                 {props.text}
             </p>
