@@ -6,29 +6,16 @@
 
     /* ### Neutral */
 
-    /* ### Light Theme */
+    /* ### Light Theme = 1*/
 
-    --veryLightGray: hsl(0, 0%, 98%);
-    --veryLightGrayishBlue: hsl(236, 33%, 92%);
-    --lightGrayishBlue: hsl(233, 11%, 84%);
-    --darkGrayishBlue: hsl(236, 9%, 61%);
-    --veryDarkGrayishBlue: hsl(235, 19%, 35%);
-
-    /* ### Dark Theme */
-
-    --veryDarkBlue: hsl(235, 21%, 11%);
-    --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-    --lightGrayishBlue: hsl(234, 39%, 85%);
-    --lightGrayishBlue: hsl(236, 33%, 92%);
-    /* ^ hover */
-    --darkGrayishBlue: hsl(234, 11%, 52%);
-    --veryDarkGrayishBlue: hsl(233, 14%, 35%);
-    --veryDarkGrayishBlue: hsl(237, 14%, 26%);
+    --veryLightGray1: hsl(0, 0%, 98%);
+    --veryLightGrayishBlue1: hsl(236, 33%, 92%);
+    --lightGrayishBlue1: hsl(233, 11%, 84%);
+    --darkGrayishBlue1: hsl(236, 9%, 61%);
+    --veryDarkGrayishBlue1: hsl(235, 19%, 35%);
 }
 
 body {
-    background-color: var(--veryLightGray);
-    color: var(--veryDarkGrayishBlue);
     font-family: "Josefin Sans", sans-serif;
     font-size: 18px;
     margin: 0;
@@ -38,6 +25,13 @@ h1 {
     color: white;
     font-size: 2.5rem;
     letter-spacing: 1rem;
+}
+
+.background {
+    background-color: var(--veryLightGray1);
+    color: var(--veryDarkGrayishBlue1);
+    height: 100vh;
+    width: 100vw;
 }
 
 .App {
@@ -62,10 +56,15 @@ h1 {
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 10px;
+    cursor: default;
 }
 .title button {
     background: none;
     border: none;
+    cursor: pointer;
+}
+.title button > img.dark-mode {
+    display: none;
 }
 
 .todo-wrapper {
@@ -75,23 +74,26 @@ h1 {
 }
 
 .todo-wrapper div {
-    background-color: white;
     border-radius: 5px;
 }
 
 .input {
+    background-color: white;
     display: flex;
     height: 60px;
 }
 .input input[type="text"] {
     border: none;
     border-radius: 5px;
-    color: var(--darkGrayishBlue);
+    color: var(--veryDarkGrayishBlue1);
     font-family: "Josefin Sans", sans-serif;
     font-size: 18px;
     height: 50px;
     width: 80%;
     align-self: center;
+}
+.input input[type="text"]::placeholder {
+    color: var(--darkGrayishBlue1);
 }
 .input input[type="text"]:focus {
     outline-color: white;
@@ -102,7 +104,8 @@ h1 {
 }
 
 .list {
-    box-shadow: 0 20px 20px var(--veryLightGrayishBlue);
+    background-color: white;
+    box-shadow: 0 20px 20px var(--veryLightGrayishBlue1);
     padding: 0;
     margin: 0;
 }
@@ -113,7 +116,7 @@ h1 {
     width: 100%;
 }
 .list li {
-    border-bottom: 1px solid var(--veryLightGrayishBlue);
+    border-bottom: 1px solid var(--veryLightGrayishBlue1);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -141,12 +144,18 @@ h1 {
 }
 
 .navigation {
-    color: var(--darkGrayishBlue);
     font-size: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 25px;
+}
+.navigation h4 {
+    color: var(--darkGrayishBlue1);
+}
+
+p.items-remaining {
+    color: var(--darkGrayishBlue1);
 }
 
 .section-toggle {
@@ -159,15 +168,19 @@ h1 {
 button.clear {
     background: none;
     border: none;
-    color: var(--darkGrayishBlue);
     cursor: pointer;
     font-family: "Josefin Sans", sans-serif;
 }
-button.clear:hover {
-    color: var(--veryDarkBlue);
+button.clear > p {
+    color: var(--darkGrayishBlue1);
+}
+button.clear > p:hover {
+    color: var(--veryDarkGrayishBlue1);
 }
 
 .footer {
+    background-color: none;
+    color: var(--darkGrayishBlue1);
     font-size: 14px;
     margin: 10% 0;
     text-align: center;

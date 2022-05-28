@@ -10,7 +10,7 @@ export default function Navigation(props) {
                 <h4>Completed</h4>
             </div>
             <button className="clear" onClick={props.onClear}>
-                Clear Completed
+                <p>Clear Completed</p>
             </button>
         </div>
     );

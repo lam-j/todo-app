@@ -1,6 +1,20 @@
 import React from "react";
 
 export default function TodoItem(props) {
+    let styles = {
+        color: props.completed === true && isDark(),
+        textDecorationLine: props.completed === true && "line-through",
+    };
+
+    function isDark() {
+        const mode = document.querySelector(".background");
+        if (mode.classList.contains("dark")) {
+            return "hsl(233, 14%, 35%)";
+        } else {
+            return "hsl(233, 11%, 84%)";
+        }
+    }
+
     return (
         <li>
             <input
@@ -14,10 +28,7 @@ export default function TodoItem(props) {
                 onClick={() => {
                     props.onComplete(props.id);
                 }}
-                style={{
-                    color: props.completed === true && "hsl(233, 11%, 84%)",
-                    textDecorationLine: props.completed === true && "line-through",
-                }}>
+                style={styles}>
                 {props.text}
             </p>
             <button

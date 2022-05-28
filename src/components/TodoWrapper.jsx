@@ -16,7 +16,7 @@ export default function TodoWrapper() {
             });
             return count;
         });
-    });
+    }, [itemList]);
 
     function addItem(item) {
         if (item !== "") {

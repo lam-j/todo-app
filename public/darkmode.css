@@ -1,0 +1,85 @@
+:root {
+    /* ### Primary */
+
+    --brightBlue: hsl(220, 98%, 61%);
+    --checkBackground: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+    /* ### Dark Theme = 2*/
+
+    --veryDarkBlue2: hsl(235, 21%, 11%);
+    --veryDarkDesaturatedBlue2: hsl(235, 24%, 19%);
+    --lightGrayishBlue2: hsl(234, 39%, 85%);
+    --lightGrayishBlueHover2: hsl(236, 33%, 92%);
+    --darkGrayishBlue2: hsl(234, 11%, 52%);
+    --veryDarkGrayishBlue2: hsl(233, 14%, 35%);
+    --veryDarkGrayishBlueHover2: hsl(237, 14%, 26%);
+}
+
+.dark.background {
+    background-color: var(--veryDarkBlue2);
+    color: var(--lightGrayishBlue2);
+    height: 100vh;
+    width: 100vw;
+}
+
+.dark .App {
+    background-image: url("images/bg-desktop-dark.jpg");
+}
+
+.dark .title button > img.light-mode {
+    display: none;
+}
+.dark .title button > img.dark-mode {
+    display: block;
+}
+
+.dark .input {
+    background-color: var(--veryDarkDesaturatedBlue2);
+}
+.dark .input input[type="text"] {
+    background-color: var(--veryDarkDesaturatedBlue2);
+    color: var(--lightGrayishBlue2);
+}
+.dark .input input[type="text"]::placeholder {
+    color: var(--darkGrayishBlue2);
+}
+.dark .input input[type="text"]:focus {
+    /* NEEDS WORK. */
+    outline-color: var(--veryDarkDesaturatedBlue2);
+}
+.input input[type="checkbox"] {
+    margin: 25px 30px;
+    padding: 0;
+}
+
+.dark .list {
+    background-color: var(--veryDarkDesaturatedBlue2);
+    box-shadow: none;
+}
+
+.dark .list li {
+    border-bottom: 0.5px solid var(--veryDarkGrayishBlueHover2);
+}
+
+.dark .list li > button:hover {
+    opacity: 75%;
+}
+
+.dark .navigation h4 {
+    color: var(--darkGrayishBlue2);
+}
+
+.dark p.items-remaining {
+    color: var(--darkGrayishBlue2);
+}
+
+.dark button.clear > p {
+    color: var(--darkGrayishBlue2);
+}
+.dark button.clear > p:hover {
+    color: var(--lightGrayishBlue2);
+}
+
+.dark .footer {
+    color: var(--darkGrayishBlue2);
+}
