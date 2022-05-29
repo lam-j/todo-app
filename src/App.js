@@ -12,7 +12,7 @@ function App() {
     }
 
     return (
-        <div className="background dark">
+        <div className="background">
             <div className="App">
                 <div className="wrapper">
                     <div className="title">

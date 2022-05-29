@@ -5,6 +5,8 @@ import List from "./List.jsx";
 export default function TodoWrapper() {
     const [itemList, setItemList] = useState([]);
     const [itemsLeft, setItemsLeft] = useState(0);
+    const [filterStatus, setFilterStatus] = useState("");
+    const [filteredList, setFilteredList] = useState([]);
 
     useEffect(() => {
         setItemsLeft(() => {
@@ -17,6 +19,10 @@ export default function TodoWrapper() {
             return count;
         });
     }, [itemList]);
+
+    useEffect(() => {
+        filterList();
+    }, [filterStatus]);
 
     function addItem(item) {
         if (item !== "") {
@@ -57,6 +63,48 @@ export default function TodoWrapper() {
         });
     }
 
+    function filterList() {
+        switch (filterStatus) {
+            case "all":
+                setFilteredList(itemList);
+                break;
+            case "active":
+                setFilteredList(() => {
+                    return itemList.filter((item) => {
+                        return item.completed === false;
+                    });
+                });
+                break;
+            case "completed":
+                setFilteredList(() => {
+                    return itemList.filter((item) => {
+                        return item.completed === true;
+                    });
+                });
+                break;
+            default:
+                setFilteredList(itemList);
+                break;
+        }
+    }
+
+    function filterClass(e) {
+        const filterButtons = document.querySelectorAll(".filter-button");
+
+        filterButtons.forEach((button) => {
+            if (button.classList.contains("active")) {
+                button.classList.toggle("active");
+            } else {
+                filterButtons.forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
+        });
+
+        e.target.classList.add("active");
+        setFilterStatus(e.target.id);
+    }
+
     return (
         <div className="todo-wrapper">
             <Input onAdd={addItem} />
@@ -66,6 +114,8 @@ export default function TodoWrapper() {
                 onClear={clearCompleted}
                 onComplete={handleCompletion}
                 itemsLeft={itemsLeft}
+                filter={filterClass}
+                filteredList={filteredList}
             />
             <div className="footer">Drag and drop to reorder list</div>
         </div>
