@@ -73,6 +73,10 @@
     color: var(--darkGrayishBlue2);
 }
 
+.dark .filter-button.active {
+    color: var(--brightBlue);
+}
+
 .dark button.clear > p {
     color: var(--darkGrayishBlue2);
 }

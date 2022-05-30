@@ -3,7 +3,7 @@ import React from "react";
 export default function Filter(props) {
     return (
         <>
-            <button onClick={props.filter} className="filter-button" id="all">
+            <button onClick={props.filter} className="filter-button active" id="all">
                 All
             </button>
             <button onClick={props.filter} className="filter-button" id="active">
