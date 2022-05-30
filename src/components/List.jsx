@@ -3,19 +3,11 @@ import Item from "./TodoItem.jsx";
 import Filter from "./Filter.jsx";
 
 export default function List(props) {
-    let list = props.itemList;
-
-    if (props.filterStatus === "") {
-        list = props.itemList;
-    } else {
-        list = props.filteredList;
-    }
-
     return (
         <>
             <div className="list">
                 <ul>
-                    {list.map((item, index) => {
+                    {props.filteredList.map((item, index) => {
                         return (
                             <Item
                                 key={item.id}

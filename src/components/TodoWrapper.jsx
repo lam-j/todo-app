@@ -5,7 +5,7 @@ import List from "./List.jsx";
 export default function TodoWrapper() {
     const [itemList, setItemList] = useState([]);
     const [itemsLeft, setItemsLeft] = useState(0);
-    const [filterStatus, setFilterStatus] = useState("");
+    const [filterStatus, setFilterStatus] = useState("all");
     const [filteredList, setFilteredList] = useState([]);
 
     useEffect(() => {
@@ -21,8 +21,23 @@ export default function TodoWrapper() {
     }, [itemList]);
 
     useEffect(() => {
-        filterList();
-    }, [filterStatus]);
+        switch (filterStatus) {
+            case "active":
+                setFilteredList(() => {
+                    return itemList.filter((item) => {
+                        return item.completed === false;
+                    });
+                });
+                break;
+            case "completed":
+                setFilteredList(() => {
+                    return itemList.filter((item) => item.completed === true);
+                });
+                break;
+            default:
+                setFilteredList(itemList);
+        }
+    }, [itemList, filterStatus]);
 
     function addItem(item) {
         if (item !== "") {
@@ -63,32 +78,7 @@ export default function TodoWrapper() {
         });
     }
 
-    function filterList() {
-        switch (filterStatus) {
-            case "all":
-                setFilteredList(itemList);
-                break;
-            case "active":
-                setFilteredList(() => {
-                    return itemList.filter((item) => {
-                        return item.completed === false;
-                    });
-                });
-                break;
-            case "completed":
-                setFilteredList(() => {
-                    return itemList.filter((item) => {
-                        return item.completed === true;
-                    });
-                });
-                break;
-            default:
-                setFilteredList(itemList);
-                break;
-        }
-    }
-
-    function filterClass(e) {
+    function handleFilter(e) {
         const filterButtons = document.querySelectorAll(".filter-button");
 
         filterButtons.forEach((button) => {
@@ -114,7 +104,7 @@ export default function TodoWrapper() {
                 onClear={clearCompleted}
                 onComplete={handleCompletion}
                 itemsLeft={itemsLeft}
-                filter={filterClass}
+                filter={handleFilter}
                 filteredList={filteredList}
             />
             <div className="footer">Drag and drop to reorder list</div>

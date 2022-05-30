@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import TodoWrapper from "./components/TodoWrapper.jsx";
 
 function App() {
+    const [currentMode, setCurrentMode] = useState("light");
+
     function toggleMode() {
+        setCurrentMode((prev) => {
+            if (prev === "light") {
+                return "dark";
+            } else {
+                return "light";
+            }
+        });
+
         const mode = document.querySelector(".background");
-        if (mode.classList.contains("dark")) {
-            mode.classList.toggle("dark");
-        } else {
+        if (currentMode === "light") {
             mode.classList.add("dark");
+        } else {
+            mode.classList.remove("dark");
         }
     }
 
