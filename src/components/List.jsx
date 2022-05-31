@@ -17,6 +17,7 @@ export default function List(props) {
                                 index={index}
                                 onDelete={props.onDelete}
                                 onComplete={props.onComplete}
+                                currentMode={props.currentMode}
                             />
                         );
                     })}

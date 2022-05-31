@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Input from "./Input.jsx";
 import List from "./List.jsx";
 
-export default function TodoWrapper() {
+export default function TodoWrapper(props) {
     const [itemList, setItemList] = useState([]);
     const [itemsLeft, setItemsLeft] = useState(0);
     const [filterStatus, setFilterStatus] = useState("all");
@@ -119,6 +119,7 @@ export default function TodoWrapper() {
                 itemsLeft={itemsLeft}
                 filter={handleFilter}
                 filteredList={filteredList}
+                currentMode={props.currentMode}
             />
             {/* <div className="footer">Drag and drop to reorder list</div> */}
         </div>

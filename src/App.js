@@ -46,7 +46,7 @@ function App() {
                             <img className="dark-mode" src="/images/icon-sun.svg" alt="" />
                         </button>
                     </div>
-                    <TodoWrapper />
+                    <TodoWrapper currentMode={currentMode} />
                 </div>
             </div>
         </div>
