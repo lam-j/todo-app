@@ -16,7 +16,10 @@ export default function TodoItem(props) {
     }
 
     return (
-        <li>
+        <li
+            onClick={() => {
+                props.onComplete(props.id);
+            }}>
             <input
                 id={props.id + "input"}
                 type="checkbox"
@@ -24,13 +27,7 @@ export default function TodoItem(props) {
                     props.onComplete(props.id);
                 }}
             />
-            <p
-                onClick={() => {
-                    props.onComplete(props.id);
-                }}
-                style={styles}>
-                {props.text}
-            </p>
+            <p style={styles}>{props.text}</p>
             <button
                 onClick={() => {
                     props.onDelete(props.index);
