@@ -16,7 +16,7 @@ export default function TodoWrapper() {
             }
         } else {
             // if this is the first visit, create local storage
-            localStorage.setItem("todos");
+            localStorage.setItem("todos", itemList);
         }
     }, []);
 
