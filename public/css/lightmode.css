@@ -78,7 +78,7 @@ h1 {
 }
 
 .input {
-    align-items: flex-end;
+    align-items: center;
     background-color: white;
     display: flex;
     height: 60px;
@@ -92,6 +92,8 @@ h1 {
     height: 50px;
     width: 80%;
     align-self: center;
+    position: relative;
+    top: 2px;
 }
 .input input[type="text"]::placeholder {
     color: var(--darkGrayishBlue1);
@@ -99,10 +101,45 @@ h1 {
 .input input[type="text"]:focus {
     outline-color: white;
 }
-.input input[type="checkbox"] {
+
+/* Custom Checkbox */
+input[type="checkbox"] {
     margin: 25px 30px;
     padding: 0;
 }
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    height: 25px;
+    width: 25px;
+    border: 1px solid var(--veryLightGrayishBlue1);
+    border-radius: 100%;
+}
+input[type="checkbox"]:checked {
+    background-image: url("../images/icon-check.svg"), var(--checkBackground);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+}
+.input input[type="checkbox"]:checked {
+    background-image: none;
+    border: 1px solid var(--veryLightGrayishBlue1);
+}
+.list li > input[type="checkbox"] {
+    position: relative;
+    bottom: 2px;
+}
+.list li:hover > input[type="checkbox"] {
+    border: 1px solid #633da8;
+}
+.list li:hover > input[type="checkbox"]:checked {
+    border: none;
+}
+
+/* End Custom Checkbox */
 
 .list {
     background-color: white;
@@ -123,11 +160,6 @@ h1 {
     align-items: center;
     word-break: break-all;
     width: 100%;
-}
-
-.list li > input {
-    margin: 25px 30px;
-    padding: 0;
 }
 
 .list li > button {
@@ -239,7 +271,7 @@ button.clear > p:hover {
         font-size: 2rem;
     }
     .App {
-        background-image: url("images/bg-mobile-light.jpg");
+        background-image: url("../images/bg-mobile-light.jpg");
     }
 
     .wrapper {

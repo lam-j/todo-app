@@ -51,6 +51,16 @@
     padding: 0;
 }
 
+/* Custom Checkbox */
+.dark input[type="checkbox"] {
+    border: 1px solid var(--veryDarkGrayishBlueHover2);
+}
+.dark .input input[type="checkbox"]:checked {
+    background-image: none;
+    border: 1px solid var(--veryDarkGrayishBlueHover2);
+}
+/* End Custom Checkbox */
+
 .dark .list {
     background-color: var(--veryDarkDesaturatedBlue2);
     box-shadow: none;
@@ -103,6 +113,6 @@
 
 @media (max-width: 500px) {
     .dark .App {
-        background-image: url("images/bg-mobile-dark.jpg");
+        background-image: url("../images/bg-mobile-dark.jpg");
     }
 }

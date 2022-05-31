@@ -109,7 +109,7 @@ export default function TodoWrapper() {
                 filter={handleFilter}
                 filteredList={filteredList}
             />
-            <div className="footer">Drag and drop to reorder list</div>
+            {/* <div className="footer">Drag and drop to reorder list</div> */}
         </div>
     );
 }
