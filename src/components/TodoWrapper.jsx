@@ -9,7 +9,7 @@ export default function TodoWrapper() {
     const [filteredList, setFilteredList] = useState([]);
 
     useEffect(() => {
-        if (JSON.parse(localStorage.getItem("todos")).length > 0) {
+        if (JSON.parse(localStorage.getItem("todos")) !== null) {
             setItemList(JSON.parse(localStorage.getItem("todos")));
         }
     }, []);
