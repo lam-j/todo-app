@@ -35,7 +35,7 @@ h1 {
 }
 
 .App {
-    background-image: url("images/bg-desktop-light.jpg");
+    background-image: url("../images/bg-desktop-light.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     display: grid;

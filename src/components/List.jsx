@@ -6,7 +6,7 @@ export default function List(props) {
     return (
         <>
             <div className="list">
-                <ul>
+                <ul className="todos">
                     {props.filteredList.map((item, index) => {
                         return (
                             <Item

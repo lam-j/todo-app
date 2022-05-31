@@ -23,7 +23,7 @@
 }
 
 .dark .App {
-    background-image: url("images/bg-desktop-dark.jpg");
+    background-image: url("../images/bg-desktop-dark.jpg");
 }
 
 .dark .title button > img.light-mode {
@@ -44,8 +44,7 @@
     color: var(--darkGrayishBlue2);
 }
 .dark .input input[type="text"]:focus {
-    /* NEEDS WORK. */
-    outline-color: var(--veryDarkDesaturatedBlue2);
+    outline: none;
 }
 .input input[type="checkbox"] {
     margin: 25px 30px;
