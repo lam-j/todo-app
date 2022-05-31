@@ -3,7 +3,7 @@ import Input from "./Input.jsx";
 import List from "./List.jsx";
 
 export default function TodoWrapper() {
-    const [itemList, setItemList] = useState([]);
+    const [itemList, setItemList] = useState(JSON.parse(localStorage.getItem("todos")));
     const [itemsLeft, setItemsLeft] = useState(0);
     const [filterStatus, setFilterStatus] = useState("all");
     const [filteredList, setFilteredList] = useState([]);
@@ -18,6 +18,8 @@ export default function TodoWrapper() {
             });
             return count;
         });
+
+        localStorage.setItem("todos", JSON.stringify(itemList));
     }, [itemList]);
 
     useEffect(() => {

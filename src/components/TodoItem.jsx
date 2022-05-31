@@ -20,13 +20,7 @@ export default function TodoItem(props) {
             onClick={() => {
                 props.onComplete(props.id);
             }}>
-            <input
-                id={props.id + "input"}
-                type="checkbox"
-                onClick={() => {
-                    props.onComplete(props.id);
-                }}
-            />
+            <input id={props.id + "input"} type="checkbox" defaultChecked={props.completed} />
             <p style={styles}>{props.text}</p>
             <button
                 onClick={() => {
