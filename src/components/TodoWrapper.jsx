@@ -9,8 +9,14 @@ export default function TodoWrapper() {
     const [filteredList, setFilteredList] = useState([]);
 
     useEffect(() => {
+        // Check if there are previously stored todo items
         if (JSON.parse(localStorage.getItem("todos")) !== null) {
-            setItemList(JSON.parse(localStorage.getItem("todos")));
+            if (JSON.parse(localStorage.getItem("todos")).length > 0) {
+                setItemList(JSON.parse(localStorage.getItem("todos")));
+            }
+        } else {
+            // if this is the first visit, create local storage
+            localStorage.setItem("todos");
         }
     }, []);
 
@@ -24,7 +30,6 @@ export default function TodoWrapper() {
             });
             return count;
         });
-
         localStorage.setItem("todos", JSON.stringify(itemList));
     }, [itemList]);
 
